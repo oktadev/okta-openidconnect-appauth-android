@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OpenIDConnectAndroid</string>
+    <string name="userinfo">Userinfo</string>
+    <string name="retrieveAccessToken">Retrieve Access Token</string>
+    <string name="exampleCall">Example API Call</string>
+    <string name="redirectURL">com.oktapreview.example</string>
+</resources>

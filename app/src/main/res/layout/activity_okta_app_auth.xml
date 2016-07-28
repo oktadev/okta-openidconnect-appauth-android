@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="jmelberg.okta.com.openidconnectandroid.OktaAppAuth"
+    android:id="@+id/Cal">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="With AppAuth"
+            android:id="@+id/header"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="193dp"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tokenIcon"
+                    android:src="@drawable/key"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:onClick="sendAuthorizationRequest"
+                    android:layout_gravity="center_horizontal" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Get Tokens"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:onClick="sendAuthorizationRequest"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/getTokensButton" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/refreshIcon"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="refreshTokens"
+                    android:src="@drawable/api_call" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh Tokens"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:onClick="refreshTokens"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/refreshTokensButton" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/apiIcon"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="exampleApi"
+                    android:src="@drawable/api" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Call API"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="exampleApi"
+                    android:id="@+id/callAPIButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userInfoIcon"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="fetchUserInfo"
+                    android:src="@drawable/user2" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Get User Info"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/userInfoButton"
+                    android:onClick="fetchUserInfo"
+                    android:layout_gravity="center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/revokeTokensIcon"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="revokeTokens"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:src="@drawable/revoke" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="Revoke Token"
+                    android:id="@+id/revokeButton"
+                    android:onClick="revokeTokens"
+                    android:layout_gravity="center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clearTokensIcon"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="clearTokens"
+                    android:src="@drawable/lock" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear Tokens"
+                    android:onClick="clearTokens"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/clearTokensButton"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
