@@ -102,7 +102,7 @@ public class DisplayImageActivity extends AppCompatActivity {
                     findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                 } else {
                     String name = response.optString("name");
-                    String imageURL = "https:" + response.optString("image");
+                    String imageURL = response.optString("image");
 
                     try {
                         DownloadImageTask downloadImageTask = new DownloadImageTask();

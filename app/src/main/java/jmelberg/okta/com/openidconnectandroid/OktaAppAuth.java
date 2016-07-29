@@ -59,7 +59,7 @@ public class OktaAppAuth extends AppCompatActivity {
     // Configuration Object
     OktaConfiguration configuration = new OktaConfiguration();
 
-    public static final String SCOPE = "openid profile email address phone groups offline_access";
+    public static final String SCOPE = "openid profile email address phone groups offline_access gravatar";
     private static final String KEY_USER_INFO = "userInfo";
     private static final String EXTRA_AUTH_SERVICE_DISCOVERY = "authServiceDiscovery";
     private static final String EXTRA_AUTH_STATE = "authState";
