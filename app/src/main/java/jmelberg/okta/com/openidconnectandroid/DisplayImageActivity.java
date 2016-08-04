@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -83,8 +84,12 @@ public class DisplayImageActivity extends AppCompatActivity {
                 String responseString = readStream(conn.getInputStream());
                 response = new JSONObject(responseString);
                 conn.disconnect();
-            } catch (Exception e) { Log.e("Error", e.getMessage()); }
-
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                try {
+                    response = new JSONObject("{\"error\" : \"Unable to access /protected endpoint\"}");
+                } catch (JSONException e1) { e1.printStackTrace(); }
+            }
             return response;
         }
 
@@ -97,10 +102,10 @@ public class DisplayImageActivity extends AppCompatActivity {
             if (response != null) {
                 System.out.print(response);
                 TextView userName = (TextView) findViewById(R.id.nameView);
-                if (response.has("Error")) {
-                    userName.setText(response.optString("Error"));
+                if (response.has("error")) {
+                    userName.setText(response.optString("error"));
                     findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-                } else {
+                } else if (response.has("name")){
                     String name = response.optString("name");
                     String imageURL = response.optString("image");
 
@@ -110,6 +115,9 @@ public class DisplayImageActivity extends AppCompatActivity {
                         userName.setText(name);
                         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                     } catch (Exception e) { Log.e("Error", e.getMessage()); }
+                } else {
+                    findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                    userName.setText("Unable to access /protected endpoint");
                 }
 
             } else { finish(); }

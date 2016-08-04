@@ -22,7 +22,7 @@ public class OktaConfiguration {
     public String kClientID = "79arVRKBcBEYMuMOXrYF";                 // Client ID of Application
     public String kRedirectURI = "com.oktapreview.example:/oauth";    // Reverse DNS notation of base url with oauth route
     public String kAppAuthExampleAuthStateKey = "com.okta.oauth.authState";
-    public String apiEndpoint = "https://example.com/protected";
+    public String apiEndpoint = "https://a332ae16.ngrok.io/protected";
 
     public OktaConfiguration() {}
 
