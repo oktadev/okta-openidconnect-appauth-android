@@ -3,7 +3,7 @@ Sample application for communicating with OAuth 2.0 and OpenID Connect providers
 
 ## Running the Sample with your Okta Organization
 
-###Pre-requisites
+### Pre-requisites
 This sample application was tested with an Okta org. If you do not have an Okta org, you can easily [sign up for a free Developer Okta org](https://www.okta.com/developer/signup/).
 
 1. Verify OpenID Connect is enabled for your Okta organization. `Admin -> Applications -> Add Application -> Create New App -> OpenID Connect`
@@ -54,7 +54,7 @@ public static final String SCOPE = "openid profile email address phone groups of
 | :-------------: |:-------------: |:-------------: |:-------------: |:-------------: |:-------------: |
 | ![Get Tokens](https://raw.githubusercontent.com/jmelberg/okta-openidconnect-appauth-sample-swift/master/OpenIDConnectSwift/Assets.xcassets/key_circle.imageset/key.png)| ![Get User Info](https://raw.githubusercontent.com/jmelberg/okta-openidconnect-appauth-sample-swift/master/OpenIDConnectSwift/Assets.xcassets/Reporting.imageset/Reporting.png)| ![Refresh Token](https://raw.githubusercontent.com/jmelberg/okta-openidconnect-appauth-sample-swift/master/OpenIDConnectSwift/Assets.xcassets/refresh.imageset/api_call.png)| ![Revoke Token](https://raw.githubusercontent.com/jmelberg/okta-openidconnect-appauth-sample-swift/master/OpenIDConnectSwift/Assets.xcassets/revoke.imageset/revoke.png) | ![Call API](https://raw.githubusercontent.com/jmelberg/okta-openidconnect-appauth-sample-swift/master/OpenIDConnectSwift/Assets.xcassets/refresh.imageset/api_call.png) | ![Clear Tokens](https://raw.githubusercontent.com/jmelberg/okta-openidconnect-appauth-sample-swift/master/OpenIDConnectSwift/Assets.xcassets/ic_key.imageset/MFA_for_Your_Apps.png)|
 
-###Get Tokens
+### Get Tokens
 
 Interacts with the Okta Authorization Server by using the discovered values from the organization's `https://example.oktapreview.com/.well-known/openid-configuration` endpoint. If the endpoint is found, the method `makeAuthRequest` generates the request by passing in the required scopes and opening up an in-app browser.
 
@@ -82,7 +82,7 @@ private void makeAuthRequest(
 ```
 If authenticated, the mobile app receives an `idToken`, `accessToken`, and `refreshToken` which are available in the Android Monitor area.
 
-###Get User Info
+### Get User Info
 If the user is authenticated, calling the [`/userinfo`](http://developer.okta.com/docs/api/resources/oidc#get-user-information) endpoint will retrieve user data. If received, the output is printed to the Debug area and a UIAlert.
 
 **NOTE:** Before calling the `/userinfo` endpoint, the `accessToken` is refreshed by AppAuth's `performActionWithFreshTokens()` method. However, if the `accessToken` was previously **revoked**, the token will **not** be refreshed.
@@ -118,7 +118,7 @@ class RequestTask extends AsyncTask<Void, Void, Void> {
 }
 ```
 
-###Refresh Tokens
+### Refresh Tokens
 The AppAuth methods `performTokenRequest` and `createTokenRefreshRequest()` are used to refresh the current **access token** if the user is authenticated.
 
 ```java
@@ -132,7 +132,7 @@ public void refreshTokens(View view) {
 }
 ```
 
-###Revoke Tokens
+### Revoke Tokens
 If authenticated, the current `accessToken` is passed to the `/revoke` endpoint to be revoked.
 
 ```java
@@ -160,7 +160,7 @@ public void callRevokeEndpoint() {
 } 
 ```
 
-###Call API
+### Call API
 Passes the current access token *(fresh or revoked)* to a resource server for validation. Returns an api-specific details about the authenticated user.
 
 Currently, the [resource server](https://github.com/jmelberg/oauth-resource-server) is implemented with [node.js](https://nodejs.org/en/) and returns an image from [Gravatar API](https://en.gravatar.com/site/implement/). Please review the [setup information in the Resource Server README](https://github.com/jmelberg/oauth-resource-server/blob/master/README.md) for proper configuration.
@@ -177,5 +177,5 @@ Currently, the [resource server](https://github.com/jmelberg/oauth-resource-serv
 ```
 
 
-###Clear Tokens
+### Clear Tokens
 Sets the current `authState` to `nil` - clearing all tokens from AppAuth's cache.
